@@ -181,7 +181,6 @@
   height: 4px;
   background: #a7d8ff;
   margin: 10px auto 0;
-  transition: width 0.3s ease;
 }
 
 .reviews-header p {
@@ -510,6 +509,30 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(card);
   });
 
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const h2 = document.querySelector('.reviews-header h2');
+  const section = document.querySelector('.google-reviews-wrapper');
+
+  if (!h2 || !section) return;
+
+  window.addEventListener('scroll', function () {
+    const rect = section.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // Progreso: 0 cuando la sección entra, 1 cuando está completamente visible arriba
+    const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / windowHeight));
+
+    // Ancho de la barrita: de 40px a 120px en PC, escalado para móvil
+    const minWidth = window.innerWidth < 768 ? 20 : 40;
+    const maxWidth = window.innerWidth < 768 ? 80 : 120;
+    const width = minWidth + progress * (maxWidth - minWidth);
+
+    h2.style.setProperty('--bar-width', width + 'px');
+  });
 });
 </script>
 
