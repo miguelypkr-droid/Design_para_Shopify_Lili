@@ -415,6 +415,22 @@ document.addEventListener("DOMContentLoaded", function () {
 .custom-header:not(.scrolled) .custom-dropdown a {
   color: #111 !important;
 }
+
+@media (max-width: 768px) {
+  .custom-header:not(.scrolled) .custom-logo a,
+  .custom-header:not(.scrolled) .custom-menu-item > a,
+  .custom-header:not(.scrolled) .custom-hamburger,
+  .custom-header:not(.scrolled) .arrow {
+    color: #111 !important;
+  }
+
+  .custom-header:not(.scrolled) .custom-menu-item > a:hover,
+  .custom-header:not(.scrolled) .custom-logo a:hover,
+  .custom-header:not(.scrolled) .custom-hamburger:hover {
+    color: #111 !important;
+  }
+}
+
 body:not(.template-index) .custom-logo a,
 body:not(.template-index) .custom-menu-item a,
 body:not(.template-index) .arrow,
