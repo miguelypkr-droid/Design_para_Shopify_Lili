@@ -335,6 +335,21 @@ document.addEventListener("DOMContentLoaded", function () {
     color: #111 !important;
   }
 
+  /* MOBILE EXCEPTION: transparent header should keep menu text black */
+  .custom-header:not(.scrolled) .custom-menu-item a,
+  .custom-header:not(.scrolled) .custom-dropdown a,
+  .custom-header:not(.scrolled) .arrow,
+  .custom-header:not(.scrolled) .custom-hamburger {
+    color: #111 !important;
+  }
+
+  /* MOBILE: no hover color switch for white menu text */
+  .custom-header:not(.scrolled) .custom-menu-item > a:hover,
+  .custom-header:not(.scrolled) .custom-logo a:hover,
+  .custom-header:not(.scrolled) .custom-hamburger:hover {
+    color: #111 !important;
+  }
+
   /* HIDE BURGER FIX EN PC */
   @media (min-width: 769px) {
     .custom-hamburger {
