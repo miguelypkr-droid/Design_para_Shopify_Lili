@@ -237,8 +237,8 @@ document.addEventListener("DOMContentLoaded", function () {
   color: #111 !important;
 }
 
-.custom-dropdown a:hover {
-  background: #f5f5f5;
+.custom-header:not(.scrolled) .custom-dropdown a {
+  color: #111 !important;
 }
 
 /* =========================
@@ -381,14 +381,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 .custom-header:not(.scrolled) .custom-logo a {
   color: #fff !important;
-  font-size: 22px !important;
+  font-size: 20px !important;
 }
 
 .custom-header:not(.scrolled) .custom-menu-item a,
-.custom-header:not(.scrolled) .arrow,
+.custom-header:not(.scrolled) .arrow {
+  color: #fff !important;
+  font-size: 18px !important;
+}
+
 .custom-header:not(.scrolled) .custom-hamburger {
   color: #fff !important;
-  font-size: 32px !important;
+  font-size: 28px !important;
 }
 
 body:not(.template-index) .custom-logo a,
@@ -410,10 +414,14 @@ body:not(.template-index) .custom-hamburger {
 }
 
 .custom-header.scrolled .custom-menu-item a,
-.custom-header.scrolled .arrow,
-.custom-header.scrolled .custom-hamburger {
+.custom-header.scrolled .arrow {
   color: #111 !important;
   font-size: 16px !important;
+}
+
+.custom-header.scrolled .custom-hamburger {
+  color: #111 !important;
+  font-size: 28px !important;
 }
 
 
