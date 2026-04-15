@@ -528,7 +528,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Ancho de la barrita: de 40px a 120px en PC, escalado para móvil
     const minWidth = window.innerWidth < 768 ? 20 : 40;
-    const maxWidth = window.innerWidth < 768 ? 80 : 120;
+    const maxWidth = window.innerWidth < 768 ? 80 : 220;
     const width = minWidth + progress * (maxWidth - minWidth);
 
     h2.style.setProperty('--bar-width', width + 'px');
