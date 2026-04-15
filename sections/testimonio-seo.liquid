@@ -177,13 +177,11 @@
 .reviews-header h2::after {
   content: '';
   display: block;
-  width: var(--bar-width, clamp(80px, 20vw, 180px));
-  height: 5px;
+  width: var(--bar-width, clamp(120px, 24vw, 260px));
+  height: 10px;
   background: #a7d8ff;
-  margin: 20px auto 0;
-}
-
-.reviews-header p {
+  margin: 26px auto 0;
+  border-radius: 999px;
   font-size: 16px;
     font-weight: 700;
   color: #999;
@@ -526,9 +524,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Progreso: 0 cuando la sección entra, 1 cuando está completamente visible arriba
     const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / windowHeight));
 
-    // Ancho de la barrita: de 80px a 260px en PC, escalado para móvil
-    const minWidth = window.innerWidth < 768 ? 40 : 80;
-    const maxWidth = window.innerWidth < 768 ? 160 : 260;
+    // Ancho de la barrita: de 120px a 320px en PC, escalado para móvil
+    const minWidth = window.innerWidth < 768 ? 60 : 120;
+    const maxWidth = window.innerWidth < 768 ? 200 : 320;
     const width = minWidth + progress * (maxWidth - minWidth);
 
     h2.style.setProperty('--bar-width', width + 'px');
