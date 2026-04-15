@@ -527,7 +527,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / windowHeight));
 
     // Ancho de la barrita: de 50px a 160px en PC, escalado para móvil
-    const minWidth = window.innerWidth < 768 ? 15 : 30;
+    const minWidth = window.innerWidth < 768 ? 10 : 20;
     const maxWidth = window.innerWidth < 768 ? 100 : 160;
     const width = minWidth + progress * (maxWidth - minWidth);
 
