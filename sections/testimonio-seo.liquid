@@ -319,7 +319,18 @@
 
 @media (max-width: 900px) {
   .reviews-bg-vertical {
-    display: none;
+    display: block;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    transform-origin: center;
+    font-size: 80px;
+    letter-spacing: 12px;
+    white-space: nowrap;
+    width: auto;
+    color: rgba(0,0,0,0.08);
+    pointer-events: none;
+    z-index: 0;
   }
 }
 
@@ -450,13 +461,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (!bg || !section) return;
 
+  const isMobile = () => window.matchMedia("(max-width: 900px)").matches;
+
   window.addEventListener("scroll", function () {
     const rect = section.getBoundingClientRect();
     let progress = rect.top / window.innerHeight;
     let moveY = progress * 300;
 
-    bg.style.transform =
-      "translateY(calc(-50% + " + moveY + "px)) rotate(-90deg)";
+    if (isMobile()) {
+      bg.style.transform = `translate(-50%, ${moveY}px)`;
+    } else {
+      bg.style.transform =
+        "translateY(calc(-50% + " + moveY + "px)) rotate(-90deg)";
+    }
   });
 });
 </script>
