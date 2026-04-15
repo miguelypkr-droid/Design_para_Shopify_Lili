@@ -1,0 +1,269 @@
+{% liquid
+  assign section_id = 'custom-rectangle-circle-' | append: section.id
+%}
+
+<section id="{{ section_id }}" class="custom-rectangle-circle-section">
+  <div class="custom-rectangle-circle__container page-width">
+    <div class="custom-rectangle-circle__card">
+      <div class="custom-rectangle-circle__content">
+        {% if section.settings.subheading != blank %}
+          <p class="custom-rectangle-circle__eyebrow">{{ section.settings.subheading }}</p>
+        {% endif %}
+
+        {% if section.settings.heading != blank %}
+          <h2 class="custom-rectangle-circle__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+        {% if section.settings.text != blank %}
+          <div class="custom-rectangle-circle__text rte">{{ section.settings.text }}</div>
+        {% endif %}
+
+        {% if section.settings.button_label != blank and section.settings.button_link != blank %}
+          <a class="custom-rectangle-circle__button" href="{{ section.settings.button_link }}">
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+
+      <div class="custom-rectangle-circle__media">
+        <div class="custom-rectangle-circle__image-circle">
+          {% if section.settings.image != blank %}
+            {{
+              section.settings.image
+              | image_url: width: 900
+              | image_tag:
+                class: 'custom-rectangle-circle__image',
+                widths: '240,360,480,720,900',
+                loading: 'lazy',
+                alt: section.settings.image.alt | escape
+            }}
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'custom-rectangle-circle__placeholder' }}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  .custom-rectangle-circle-section {
+    padding: 48px 0;
+  }
+
+  .custom-rectangle-circle__card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 48px 56px;
+    border-radius: 28px;
+    background: var(--custom-rectangle-bg, #f4d7cf);
+    color: var(--custom-rectangle-text, #231815);
+    overflow: visible;
+  }
+
+  .custom-rectangle-circle__content {
+    max-width: 680px;
+    padding-right: 140px;
+  }
+
+  .custom-rectangle-circle__eyebrow {
+    margin: 0 0 12px;
+    font-size: 1.2rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+
+  .custom-rectangle-circle__heading {
+    margin: 0 0 16px;
+    font-size: clamp(2.8rem, 4vw, 4.8rem);
+    line-height: 0.95;
+  }
+
+  .custom-rectangle-circle__text {
+    margin: 0;
+    max-width: 56ch;
+    font-size: 1.6rem;
+    line-height: 1.7;
+  }
+
+  .custom-rectangle-circle__text > *:first-child {
+    margin-top: 0;
+  }
+
+  .custom-rectangle-circle__text > *:last-child {
+    margin-bottom: 0;
+  }
+
+  .custom-rectangle-circle__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    background: var(--custom-rectangle-button-bg, #231815);
+    color: var(--custom-rectangle-button-text, #ffffff);
+    text-decoration: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .custom-rectangle-circle__button:hover {
+    transform: translateY(-1px);
+    opacity: 0.92;
+  }
+
+  .custom-rectangle-circle__media {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .custom-rectangle-circle__image-circle {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 8px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    background: #ffffff;
+  }
+
+  .custom-rectangle-circle__image,
+  .custom-rectangle-circle__placeholder {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  @media screen and (max-width: 989px) {
+    .custom-rectangle-circle__card {
+      padding: 40px 32px;
+    }
+
+    .custom-rectangle-circle__content {
+      padding-right: 180px;
+    }
+
+    .custom-rectangle-circle__image-circle {
+      width: 180px;
+      height: 180px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .custom-rectangle-circle-section {
+      padding: 32px 0;
+    }
+
+    .custom-rectangle-circle__card {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 28px 20px 20px;
+      gap: 20px;
+    }
+
+    .custom-rectangle-circle__content {
+      max-width: 100%;
+      padding-right: 0;
+    }
+
+    .custom-rectangle-circle__media {
+      position: static;
+      transform: none;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .custom-rectangle-circle__image-circle {
+      width: 140px;
+      height: 140px;
+    }
+  }
+{% endstylesheet %}
+
+<style>
+  #{{ section_id }} {
+    --custom-rectangle-bg: {{ section.settings.card_background }};
+    --custom-rectangle-text: {{ section.settings.text_color }};
+    --custom-rectangle-button-bg: {{ section.settings.button_background }};
+    --custom-rectangle-button-text: {{ section.settings.button_text_color }};
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Rectangulo custom",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subtitulo",
+      "default": "Seccion personalizada"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Titulo",
+      "default": "Rectangulo con imagen circular"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Texto",
+      "default": "<p>Agrega aqui tu contenido para destacar un servicio, promocion o mensaje importante.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen circular"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texto del boton",
+      "default": "Ver mas"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Enlace del boton"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Color de fondo",
+      "default": "#f4d7cf"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color del texto",
+      "default": "#231815"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Color del boton",
+      "default": "#231815"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Color del texto del boton",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rectangulo custom"
+    }
+  ]
+}
+{% endschema %}
