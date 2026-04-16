@@ -62,6 +62,16 @@
     background: var(--custom-rectangle-bg, #ffffff);
     color: var(--custom-rectangle-text, #231815);
     overflow: visible;
+    max-width: 900px;
+    margin: 0 auto;
+    transform: translateX(-50px);
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+  }
+
+  .custom-rectangle-circle__card.animate {
+    transform: translateX(0);
+    opacity: 1;
   }
 
   .custom-rectangle-circle__content {
@@ -196,6 +206,24 @@
     --custom-rectangle-button-text: {{ section.settings.button_text_color }};
   }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        observer.unobserve(entry.target); // Optional: stop observing once animated
+      }
+    });
+  }, { threshold: 0.1 }); // Trigger when 10% is visible
+
+  const card = document.querySelector('#{{ section_id }} .custom-rectangle-circle__card');
+  if (card) {
+    observer.observe(card);
+  }
+});
+</script>
 
 {% schema %}
 {
