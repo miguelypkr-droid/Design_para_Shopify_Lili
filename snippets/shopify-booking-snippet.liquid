@@ -1,0 +1,119 @@
+<div
+  id="booking-widget"
+  class="booking-widget"
+  data-api-base-url="http://localhost:3000/api/public"
+  data-public-api-key="shopify_drlili_api_9ek5ktF04Q43Frw"
+>
+  <div class="booking-widget__header">
+    <h3>Reserva tu cita</h3>
+    <p>Selecciona una fecha y una hora disponible.</p>
+  </div>
+
+  <form id="booking-form" class="booking-widget__form">
+    <label>
+      Fecha
+      <input id="booking-date" name="appointmentDate" type="date" required>
+    </label>
+
+    <label>
+      Horario disponible
+      <select id="booking-time" name="appointmentTime" required>
+        <option value="">Selecciona una fecha primero</option>
+      </select>
+    </label>
+
+    <label>
+      Nombre completo
+      <input name="patientName" type="text" required>
+    </label>
+
+    <label>
+      Correo electronico
+      <input name="patientEmail" type="email">
+    </label>
+
+    <label>
+      Telefono
+      <input name="patientPhone" type="tel">
+    </label>
+
+    <label>
+      Motivo de la cita
+      <input name="reason" type="text" required>
+    </label>
+
+    <label>
+      Notas
+      <textarea name="notes" rows="3"></textarea>
+    </label>
+
+    <button type="submit">Reservar cita</button>
+  </form>
+
+  <p id="booking-status" class="booking-widget__status" aria-live="polite"></p>
+</div>
+
+<style>
+  .booking-widget {
+    max-width: 520px;
+    padding: 24px;
+    border: 1px solid #d9d9d9;
+    border-radius: 16px;
+    background: #fffdf8;
+  }
+
+  .booking-widget__header h3 {
+    margin: 0 0 8px;
+    font-size: 24px;
+  }
+
+  .booking-widget__header p {
+    margin: 0 0 20px;
+    color: #5f5a54;
+  }
+
+  .booking-widget__form {
+    display: grid;
+    gap: 14px;
+  }
+
+  .booking-widget__form label {
+    display: grid;
+    gap: 6px;
+    font-size: 14px;
+    color: #2c2926;
+  }
+
+  .booking-widget__form input,
+  .booking-widget__form select,
+  .booking-widget__form textarea,
+  .booking-widget__form button {
+    font: inherit;
+  }
+
+  .booking-widget__form input,
+  .booking-widget__form select,
+  .booking-widget__form textarea {
+    padding: 12px;
+    border: 1px solid #cfc8be;
+    border-radius: 10px;
+    background: #ffffff;
+  }
+
+  .booking-widget__form button {
+    padding: 14px 18px;
+    border: 0;
+    border-radius: 999px;
+    background: #1f6f5f;
+    color: #ffffff;
+    cursor: pointer;
+  }
+
+  .booking-widget__status {
+    margin: 16px 0 0;
+    min-height: 24px;
+    color: #1f6f5f;
+  }
+</style>
+
+<script src="{{ 'shopify-booking-widget.js' | asset_url }}" defer></script>
