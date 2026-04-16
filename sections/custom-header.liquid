@@ -123,22 +123,30 @@ document.addEventListener("DOMContentLoaded", function () {
   width: 100%;
   z-index: 10000;
 
-  background: rgba(255, 255, 255, 0.25);
+  background: linear-gradient(135deg, rgba(255,0,128,0.15), rgba(255,128,0,0.15), rgba(128,255,0,0.15), rgba(0,255,128,0.15), rgba(0,128,255,0.15), rgba(128,0,255,0.15));
+  background-size: 400% 400%;
+  animation: shimmer 4s ease-in-out infinite;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   transition: all 0.3s ease;
 
   padding: 30px 24px;
 }
 
 .custom-header.scrolled {
-  background: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
   padding: 14px 24px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* =========================
@@ -389,20 +397,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 .custom-header {
-  background: rgba(255, 255, 255, 0.25);
+  background: linear-gradient(135deg, rgba(255,0,128,0.15), rgba(255,128,0,0.15), rgba(128,255,0,0.15), rgba(0,255,128,0.15), rgba(0,128,255,0.15), rgba(128,0,255,0.15));
+  background-size: 400% 400%;
+  animation: shimmer 4s ease-in-out infinite;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: none;
   transition: background 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
   padding: 15px 20px;
 }
 
 .custom-header:not(.scrolled) {
-  background: rgba(255, 255, 255, 0.25);
+  background: linear-gradient(135deg, rgba(255,0,128,0.15), rgba(255,128,0,0.15), rgba(128,255,0,0.15), rgba(0,255,128,0.15), rgba(0,128,255,0.15), rgba(128,0,255,0.15));
+  background-size: 400% 400%;
+  animation: shimmer 4s ease-in-out infinite;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   padding: 40px 20px;
 }
 
@@ -455,11 +467,11 @@ body:not(.template-index) .custom-header:not(.scrolled) .custom-hamburger {
 }
 
 .custom-header.scrolled {
-  background: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
   padding: 15px 20px;
 }
 
