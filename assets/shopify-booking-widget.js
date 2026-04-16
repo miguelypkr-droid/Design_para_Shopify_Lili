@@ -11,6 +11,7 @@
   const dateInput = document.getElementById("booking-date");
   const timeSelect = document.getElementById("booking-time");
   const statusElement = document.getElementById("booking-status");
+  let minimumBookingDate = "";
 
   function setStatus(message, isError) {
     statusElement.textContent = message;
@@ -34,6 +35,15 @@
     }
 
     return data;
+  }
+
+  async function loadConfig() {
+    const result = await request("/config");
+    minimumBookingDate = result.data.minimumBookingDate || "";
+
+    if (minimumBookingDate) {
+      dateInput.min = minimumBookingDate;
+    }
   }
 
   function renderSlots(slots) {
@@ -116,5 +126,9 @@
     } catch (error) {
       setStatus(error.message, true);
     }
+  });
+
+  loadConfig().catch((error) => {
+    setStatus(error.message, true);
   });
 })();
