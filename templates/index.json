@@ -63,11 +63,23 @@
         "button_background": "#ffffff",
         "button_text_color": "#ffffff"
       }
+    },
+    "custom_liquid_jHbjpH": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "{% render 'booking-widget' %}",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     }
   },
   "order": [
     "hero_jVaWmY",
     "testimonio_seo_EyqAJk",
-    "custom_rectangle_circle_BJbxry"
+    "custom_rectangle_circle_BJbxry",
+    "custom_liquid_jHbjpH"
   ]
 }
