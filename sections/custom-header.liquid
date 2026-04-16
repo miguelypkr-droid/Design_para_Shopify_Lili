@@ -123,9 +123,10 @@ document.addEventListener("DOMContentLoaded", function () {
   width: 100%;
   z-index: 10000;
 
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s ease;
 
   padding: 30px 24px;
@@ -133,9 +134,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 .custom-header.scrolled {
   background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   padding: 14px 24px;
 }
 
@@ -387,18 +389,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 .custom-header {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: none;
   transition: background 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
   padding: 15px 20px;
 }
 
 .custom-header:not(.scrolled) {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   padding: 40px 20px;
 }
 
@@ -452,9 +456,10 @@ body:not(.template-index) .custom-header:not(.scrolled) .custom-hamburger {
 
 .custom-header.scrolled {
   background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   padding: 15px 20px;
 }
 
